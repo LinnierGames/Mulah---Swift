@@ -19,6 +19,9 @@
 		E96ED7DF1F4689EB0074AE37 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */; };
 		E96ED7E11F47522C0074AE37 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E01F47522C0074AE37 /* Account.swift */; };
 		E96ED7E51F47535A0074AE37 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E41F47535A0074AE37 /* Categories.swift */; };
+		E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */; };
+		E96ED7EB1F4759F30074AE37 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EA1F4759F30074AE37 /* ActivityViewController.swift */; };
+		E96ED7ED1F479FBD0074AE37 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EC1F479FBD0074AE37 /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		E96ED7E01F47522C0074AE37 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		E96ED7E41F47535A0074AE37 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
+		E96ED7EA1F4759F30074AE37 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		E96ED7EC1F479FBD0074AE37 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +113,13 @@
 		E96ED7AA1F4670FB0074AE37 /* Mulah */ = {
 			isa = PBXGroup;
 			children = (
-				E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */,
-				E96ED7E41F47535A0074AE37 /* Categories.swift */,
+				E96ED7E61F4759630074AE37 /* Controllers */,
 				E96ED7AD1F4670FB0074AE37 /* ViewController.swift */,
-				E96ED7AF1F4670FB0074AE37 /* Main.storyboard */,
-				E96ED7B51F4670FB0074AE37 /* Assets.xcassets */,
-				E96ED7B71F4670FB0074AE37 /* LaunchScreen.storyboard */,
-				E96ED7BA1F4670FB0074AE37 /* Info.plist */,
-				E96ED7B21F4670FB0074AE37 /* Mulah.xcdatamodeld */,
+				E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */,
+				E96ED7EA1F4759F30074AE37 /* ActivityViewController.swift */,
 				E96ED7DC1F4689850074AE37 /* AccountsViewController.swift */,
-				E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */,
-				E96ED7E01F47522C0074AE37 /* Account.swift */,
+				E96ED7AF1F4670FB0074AE37 /* Main.storyboard */,
+				E96ED7E71F47596D0074AE37 /* Supporting Files */,
 			);
 			path = Mulah;
 			sourceTree = "<group>";
@@ -138,6 +140,29 @@
 				E96ED7D01F4670FB0074AE37 /* Info.plist */,
 			);
 			path = MulahUITests;
+			sourceTree = "<group>";
+		};
+		E96ED7E61F4759630074AE37 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */,
+				E96ED7E41F47535A0074AE37 /* Categories.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E96ED7E71F47596D0074AE37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E96ED7B51F4670FB0074AE37 /* Assets.xcassets */,
+				E96ED7B71F4670FB0074AE37 /* LaunchScreen.storyboard */,
+				E96ED7BA1F4670FB0074AE37 /* Info.plist */,
+				E96ED7B21F4670FB0074AE37 /* Mulah.xcdatamodeld */,
+				E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */,
+				E96ED7E01F47522C0074AE37 /* Account.swift */,
+				E96ED7EC1F479FBD0074AE37 /* Transaction.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,9 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */,
 				E96ED7AE1F4670FB0074AE37 /* ViewController.swift in Sources */,
 				E96ED7E51F47535A0074AE37 /* Categories.swift in Sources */,
 				E96ED7DF1F4689EB0074AE37 /* FetchedResultsTableViewController.swift in Sources */,
+				E96ED7ED1F479FBD0074AE37 /* Transaction.swift in Sources */,
+				E96ED7EB1F4759F30074AE37 /* ActivityViewController.swift in Sources */,
 				E96ED7B41F4670FB0074AE37 /* Mulah.xcdatamodeld in Sources */,
 				E96ED7DD1F4689850074AE37 /* AccountsViewController.swift in Sources */,
 				E96ED7AC1F4670FB0074AE37 /* AppDelegate.swift in Sources */,
