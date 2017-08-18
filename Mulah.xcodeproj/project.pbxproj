@@ -15,6 +15,10 @@
 		E96ED7B91F4670FB0074AE37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96ED7B71F4670FB0074AE37 /* LaunchScreen.storyboard */; };
 		E96ED7C41F4670FB0074AE37 /* MulahTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7C31F4670FB0074AE37 /* MulahTests.swift */; };
 		E96ED7CF1F4670FB0074AE37 /* MulahUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7CE1F4670FB0074AE37 /* MulahUITests.swift */; };
+		E96ED7DD1F4689850074AE37 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7DC1F4689850074AE37 /* AccountsViewController.swift */; };
+		E96ED7DF1F4689EB0074AE37 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */; };
+		E96ED7E11F47522C0074AE37 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E01F47522C0074AE37 /* Account.swift */; };
+		E96ED7E51F47535A0074AE37 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E41F47535A0074AE37 /* Categories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		E96ED7CA1F4670FB0074AE37 /* MulahUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MulahUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96ED7CE1F4670FB0074AE37 /* MulahUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulahUITests.swift; sourceTree = "<group>"; };
 		E96ED7D01F4670FB0074AE37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E96ED7DC1F4689850074AE37 /* AccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
+		E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
+		E96ED7E01F47522C0074AE37 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		E96ED7E41F47535A0074AE37 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +108,16 @@
 			isa = PBXGroup;
 			children = (
 				E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */,
+				E96ED7E41F47535A0074AE37 /* Categories.swift */,
 				E96ED7AD1F4670FB0074AE37 /* ViewController.swift */,
 				E96ED7AF1F4670FB0074AE37 /* Main.storyboard */,
 				E96ED7B51F4670FB0074AE37 /* Assets.xcassets */,
 				E96ED7B71F4670FB0074AE37 /* LaunchScreen.storyboard */,
 				E96ED7BA1F4670FB0074AE37 /* Info.plist */,
 				E96ED7B21F4670FB0074AE37 /* Mulah.xcdatamodeld */,
+				E96ED7DC1F4689850074AE37 /* AccountsViewController.swift */,
+				E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */,
+				E96ED7E01F47522C0074AE37 /* Account.swift */,
 			);
 			path = Mulah;
 			sourceTree = "<group>";
@@ -266,8 +278,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E96ED7AE1F4670FB0074AE37 /* ViewController.swift in Sources */,
+				E96ED7E51F47535A0074AE37 /* Categories.swift in Sources */,
+				E96ED7DF1F4689EB0074AE37 /* FetchedResultsTableViewController.swift in Sources */,
 				E96ED7B41F4670FB0074AE37 /* Mulah.xcdatamodeld in Sources */,
+				E96ED7DD1F4689850074AE37 /* AccountsViewController.swift in Sources */,
 				E96ED7AC1F4670FB0074AE37 /* AppDelegate.swift in Sources */,
+				E96ED7E11F47522C0074AE37 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +536,7 @@
 				E96ED7D51F4670FB0074AE37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E96ED7D61F4670FB0074AE37 /* Build configuration list for PBXNativeTarget "MulahTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +545,7 @@
 				E96ED7D81F4670FB0074AE37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E96ED7D91F4670FB0074AE37 /* Build configuration list for PBXNativeTarget "MulahUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +554,7 @@
 				E96ED7DB1F4670FB0074AE37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
