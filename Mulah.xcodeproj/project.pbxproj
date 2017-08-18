@@ -20,8 +20,9 @@
 		E96ED7E11F47522C0074AE37 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E01F47522C0074AE37 /* Account.swift */; };
 		E96ED7E51F47535A0074AE37 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E41F47535A0074AE37 /* Categories.swift */; };
 		E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */; };
-		E96ED7EB1F4759F30074AE37 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EA1F4759F30074AE37 /* ActivityViewController.swift */; };
+		E96ED7EB1F4759F30074AE37 /* MoneyBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EA1F4759F30074AE37 /* MoneyBookViewController.swift */; };
 		E96ED7ED1F479FBD0074AE37 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EC1F479FBD0074AE37 /* Transaction.swift */; };
+		E96ED7EF1F47AF8E0074AE37 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +62,9 @@
 		E96ED7E01F47522C0074AE37 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		E96ED7E41F47535A0074AE37 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
-		E96ED7EA1F4759F30074AE37 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		E96ED7EA1F4759F30074AE37 /* MoneyBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyBookViewController.swift; sourceTree = "<group>"; };
 		E96ED7EC1F479FBD0074AE37 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,7 @@
 				E96ED7E61F4759630074AE37 /* Controllers */,
 				E96ED7AD1F4670FB0074AE37 /* ViewController.swift */,
 				E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */,
-				E96ED7EA1F4759F30074AE37 /* ActivityViewController.swift */,
+				E96ED7EA1F4759F30074AE37 /* MoneyBookViewController.swift */,
 				E96ED7DC1F4689850074AE37 /* AccountsViewController.swift */,
 				E96ED7AF1F4670FB0074AE37 /* Main.storyboard */,
 				E96ED7E71F47596D0074AE37 /* Supporting Files */,
@@ -161,6 +163,7 @@
 				E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */,
 				E96ED7E01F47522C0074AE37 /* Account.swift */,
 				E96ED7EC1F479FBD0074AE37 /* Transaction.swift */,
+				E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -304,10 +307,11 @@
 			files = (
 				E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */,
 				E96ED7AE1F4670FB0074AE37 /* ViewController.swift in Sources */,
+				E96ED7EF1F47AF8E0074AE37 /* CustomTableViewCell.swift in Sources */,
 				E96ED7E51F47535A0074AE37 /* Categories.swift in Sources */,
 				E96ED7DF1F4689EB0074AE37 /* FetchedResultsTableViewController.swift in Sources */,
 				E96ED7ED1F479FBD0074AE37 /* Transaction.swift in Sources */,
-				E96ED7EB1F4759F30074AE37 /* ActivityViewController.swift in Sources */,
+				E96ED7EB1F4759F30074AE37 /* MoneyBookViewController.swift in Sources */,
 				E96ED7B41F4670FB0074AE37 /* Mulah.xcdatamodeld in Sources */,
 				E96ED7DD1F4689850074AE37 /* AccountsViewController.swift in Sources */,
 				E96ED7AC1F4670FB0074AE37 /* AppDelegate.swift in Sources */,

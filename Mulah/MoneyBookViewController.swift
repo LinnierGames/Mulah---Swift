@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ActivityViewController: UIViewController {
+class MoneyBookViewController: UIViewController {
     
     @IBOutlet weak var tableController: UIView!
     

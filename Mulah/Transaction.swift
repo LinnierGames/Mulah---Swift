@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 // TODO: use Decimal
-typealias _Decimal = Double
+public typealias _Decimal = Double
 
 extension Transaction {
     convenience init(title: String = "Untitled", amount: _Decimal = 0.00, date: Date = Date(), fromAccount: Account, toAccount: Account? = nil, `in` context: NSManagedObjectContext) {

@@ -40,11 +40,9 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as! CustomTableViewCell
         
-        let transaction = fetchedResultsValue.object(at: indexPath)
-        cell.textLabel!.text = transaction.title
-        cell.detailTextLabel!.text = String(transaction.amount)
+        cell.transaction = fetchedResultsValue.object(at: indexPath)
         
         return cell
     }
@@ -53,7 +51,7 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
     
     private func updateUI() {
         let fetch: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-        fetch.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        fetch.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchedResultsController = NSFetchedResultsController<NSManagedObject>(
             fetchRequest: fetch as! NSFetchRequest<NSManagedObject>,
             managedObjectContext: AppDelegate.viewContext,
@@ -85,6 +83,9 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 32
         
         updateUI()
     }
