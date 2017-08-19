@@ -44,7 +44,7 @@ class AccountsViewController: FetchedResultsTableViewController {
         
         let account = fetchedResultsValue.object(at: indexPath)
         cell.textLabel!.text = account.title
-        cell.detailTextLabel!.text = "$0.00"
+        cell.detailTextLabel!.text = String(account.balance)
         
         return cell
     }
