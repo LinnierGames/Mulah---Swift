@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TransactionsTableViewController: FetchedResultsTableViewController {
+class TransactionsTableViewController: FetchedResultsTableViewController, CustomTableViewCellDelegate {
     
     override var fetchedResultsController: NSFetchedResultsController<NSManagedObject>! {
         didSet {
@@ -29,6 +29,17 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
         return fetchedResultsController as! NSFetchedResultsController<Transaction>
     }
     
+    private var selectedIndexPath: IndexPath? {
+        didSet {
+            if oldValue != nil {
+                tableView.reloadRows(at: [oldValue!], with: .fade)
+            }
+            if selectedIndexPath != nil {
+                tableView.reloadRows(at: [selectedIndexPath!], with: .fade)
+            }
+        }
+    }
+    
     // MARK: - RETURN VALUES
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,9 +51,25 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as! CustomTableViewCell
+        let cell: CustomTableViewCell
+        let transaction = fetchedResultsValue.object(at: indexPath)
+        if let expandedIndexPath = selectedIndexPath {
+            if expandedIndexPath == indexPath {
+                if transaction.toAccount != nil {
+                    cell = tableView.dequeueReusableCell(withIdentifier: "transaction expanded transfer", for: indexPath) as! CustomTableViewCell
+                    cell.delegate = self
+                } else {
+                    cell = tableView.dequeueReusableCell(withIdentifier: "transaction expanded", for: indexPath) as! CustomTableViewCell
+                    cell.delegate = self
+                }
+            } else {
+                cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as! CustomTableViewCell
+            }
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as! CustomTableViewCell
+        }
         
-        cell.transaction = fetchedResultsValue.object(at: indexPath)
+        cell.transaction = transaction
         
         return cell
     }
@@ -60,18 +87,6 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
         )
     }
     
-    /*
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     if let identifier = segue.identifier {
-     switch identifier {
-     case <#pattern#>:
-     <#code#>
-     default:
-     break
-     }
-     }
-     }*/
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,16 +95,15 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
     // MARK: Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let transaction = fetchedResultsValue.object(at: indexPath)
-        let alert = UIAlertController(title: "Rename Transaction", message: "enter a title", preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.setStyleToParagraph(withPlaceholderText: "title", withInitalText: transaction.title)
+        if selectedIndexPath != nil {
+            if selectedIndexPath! == indexPath {
+                selectedIndexPath = nil
+            } else {
+                selectedIndexPath = indexPath
+            }
+        } else {
+            selectedIndexPath = indexPath
         }
-        alert.addActions(actions: UIAlertActionInfo(title: "Rename", handler: { (action) in
-            transaction.title = alert.inputField.text
-            AppDelegate.instance.saveContext()
-        }))
-        self.present(alert, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -103,6 +117,30 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
             AppDelegate.instance.saveContext()
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK Custom Table View Cell Delegate
+    
+    func customCell(_ cell: CustomTableViewCell, didPressButton button: UIButton) {
+        let transaction = fetchedResultsValue.object(at: tableView.indexPath(for: cell)!)
+        switch button.tag {
+        case 1: //edit
+            let alert = UIAlertController(title: "Rename Transaction", message: "enter a title", preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.setStyleToParagraph(withPlaceholderText: "title", withInitalText: transaction.title)
+            }
+            alert.addActions(actions: UIAlertActionInfo(title: "Rename", handler: { (action) in
+                transaction.title = alert.inputField.text
+                AppDelegate.instance.saveContext()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        case 2: //from Account
+            break
+        case 3: //to account
+            break
+        default:
+            break
+        }
     }
     
     // MARK: - IBACTIONS
