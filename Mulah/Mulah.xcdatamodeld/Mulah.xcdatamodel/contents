@@ -5,7 +5,11 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="typeValue" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="deposits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transactions" inverseName="toAccount" inverseEntity="Transactions" syncable="YES"/>
+        <relationship name="safeBoxes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SafeBoxes" inverseName="physicalAccount" inverseEntity="SafeBoxes" syncable="YES"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transactions" inverseName="fromAccount" inverseEntity="Transactions" syncable="YES"/>
+    </entity>
+    <entity name="SafeBoxes" representedClassName="SafeBox" parentEntity="Accounts" syncable="YES" codeGenerationType="class">
+        <relationship name="physicalAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="safeBoxes" inverseEntity="Accounts" syncable="YES"/>
     </entity>
     <entity name="Transactions" representedClassName="Transaction" syncable="YES" codeGenerationType="class">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -17,7 +21,8 @@
         <relationship name="toAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="deposits" inverseEntity="Accounts" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Accounts" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Accounts" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Transactions" positionX="-54" positionY="18" width="128" height="150"/>
+        <element name="SafeBoxes" positionX="-63" positionY="63" width="128" height="60"/>
     </elements>
 </model>
