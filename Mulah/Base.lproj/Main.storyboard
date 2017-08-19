@@ -112,15 +112,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="transaction" rowHeight="32" id="YoM-Qh-c5x" customClass="CustomTableViewCell" customModule="Mulah" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="transaction" rowHeight="32" id="YoM-Qh-c5x" customClass="CustomTableViewCell" customModule="Mulah" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="298" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YoM-Qh-c5x" id="hx0-23-lIs">
-                                    <rect key="frame" x="0.0" y="0.0" width="298" height="31.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="251" height="31.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NiG-3v-OGk">
-                                            <rect key="frame" x="0.0" y="0.0" width="278" height="31.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="231" height="31.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AsE-DY-E64">
                                                     <rect key="frame" x="0.0" y="0.0" width="8" height="31.5"/>
@@ -149,7 +149,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nag-Ob-AW2">
-                                                    <rect key="frame" x="66" y="0.0" width="212" height="31.5"/>
+                                                    <rect key="frame" x="66" y="0.0" width="165" height="31.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>

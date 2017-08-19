@@ -77,6 +77,34 @@ class TransactionsTableViewController: FetchedResultsTableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let transaction = fetchedResultsValue.object(at: indexPath)
+        let alert = UIAlertController(title: "Rename Transaction", message: "enter a title", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.setStyleToParagraph(withPlaceholderText: "title", withInitalText: transaction.title)
+        }
+        alert.addActions(actions: UIAlertActionInfo(title: "Rename", handler: { (action) in
+            transaction.title = alert.inputField.text
+            AppDelegate.instance.saveContext()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let transaction = fetchedResultsValue.object(at: indexPath)
+        let alert = UIAlertController(title: "Update Amount", message: "enter an amount", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.setStyleToParagraph(withPlaceholderText: "amount", withInitalText: String(transaction.amount))
+        }
+        alert.addActions(actions: UIAlertActionInfo(title: "Update", handler: { (action) in
+            transaction.amount = Double(alert.inputField.text!)!
+            AppDelegate.instance.saveContext()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - IBACTIONS
     
     // MARK: - LIFE CYCLE

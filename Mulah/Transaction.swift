@@ -22,6 +22,5 @@ extension Transaction {
         self.toAccount = toAccount
         self.dateCreated = NSDate()
         self.date = date as NSDate
-        
     }
 }

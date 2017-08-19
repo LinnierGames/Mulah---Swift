@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 extension Account {
@@ -42,5 +43,23 @@ extension Account {
             return transactionBalance + transferBalance
         }
         fatalError()
+    }
+}
+
+extension NSManagedObjectContext {
+    public func listOfAccounts() -> [Account] {
+        return (try! AppDelegate.viewContext.fetch(Account.fetchRequest())) as! [Account]
+    }
+}
+
+extension UIAlertController {
+    public convenience init(title: String?, message: String?, forAccounts accounts: [Account], handler: @escaping (Account) -> Swift.Void) {
+        self.init(title: title, message: message, preferredStyle: .actionSheet)
+        for account in accounts {
+            self.addAction(UIAlertAction(title: account.title, style: .default, handler: { (action) in
+                handler(account)
+            }))
+        }
+        self.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     }
 }

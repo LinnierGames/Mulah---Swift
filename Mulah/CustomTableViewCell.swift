@@ -17,10 +17,17 @@ class CustomTableViewCell: UITableViewCell {
     
     public var transaction: Transaction! {
         didSet {
-            self.labelTitle.text = transaction.title
-            self.labelAccount.text = transaction.fromAccount!.title
-            self.labelAmount.text = String(transaction.amount)
-            self.imageColor.backgroundColor = UIColor.blue
+            if transaction != nil {
+                self.labelTitle.text = transaction.title
+                if let transferAccount = transaction.toAccount {
+                    self.labelAccount.text = "\(transaction.fromAccount!.title!) -> \(transferAccount.title!)"
+                    self.labelAmount.text = String(-transaction.amount)
+                } else {
+                    self.labelAccount.text = transaction?.fromAccount!.title
+                    self.labelAmount.text = String(transaction.amount)
+                }
+                self.imageColor.backgroundColor = UIColor.blue
+            }
         }
     }
     
