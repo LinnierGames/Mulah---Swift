@@ -14,14 +14,14 @@ extension Balance {
     public var balance: _Decimal {
         if let managedObjectContext = self.managedObjectContext {
             let fetchTransactions: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-            fetchTransactions.predicate = NSPredicate(format: "fromAccount == %@", self)
+            fetchTransactions.predicate = NSPredicate(format: "fromBalance == %@", self)
             let transactions = try! managedObjectContext.fetch(fetchTransactions)
             let transactionBalance = transactions.reduce(0, { (balance, transaction) -> _Decimal in
                 return balance + transaction.amount
             })
             
             let fetchTransfers: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-            fetchTransfers.predicate = NSPredicate(format: "toAccount == %@", self)
+            fetchTransfers.predicate = NSPredicate(format: "toBalance == %@", self)
             let transfers = try! managedObjectContext.fetch(fetchTransfers)
             let transferBalance = transfers.reduce(0, { (balance, transaction) -> _Decimal in
                 return balance + (transaction.amount * -1)
