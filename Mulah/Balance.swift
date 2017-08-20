@@ -29,7 +29,24 @@ extension Balance {
             
             return transactionBalance + transferBalance
         }
-        fatalError()
+        fatalError("Missing ManagedObjectContext")
+    }
+    
+    public var realtimeBalance: _Decimal? {
+        let physicalBalance = self.balance
+        
+        let fetchSafeBoxes: NSFetchRequest<SafeBox> = SafeBox.fetchRequest()
+        fetchSafeBoxes.predicate = NSPredicate(format: "physicalAccount == %@", self)
+        let safeBoxes = try! self.managedObjectContext!.fetch(fetchSafeBoxes)
+        let safeBoxesSum = safeBoxes.reduce(0) { (sum, safeBox) -> _Decimal in
+            return safeBox.balance + sum
+        }
+        
+        if safeBoxes.count == 0 { // && wishLists.count == 0, etc
+            return nil
+        }
+        
+        return physicalBalance + safeBoxesSum
     }
 }
 

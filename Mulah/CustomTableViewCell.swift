@@ -18,6 +18,7 @@ class CustomTableViewCell: UITableViewCell {
     var delegate: CustomTableViewCellDelegate?
 
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelSubtitle: UILabel!
     @IBOutlet weak var labelAccount: UILabel!
     @IBOutlet weak var labelAmount: UILabel!
     @IBOutlet weak var imageColor: UIImageView!

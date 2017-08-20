@@ -32,13 +32,24 @@ class AccountsViewController: FetchedResultsTableViewController {
     // MARK: - RETURN VALUES
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
         let account = fetchedResultsValue.object(at: indexPath)
-        cell.textLabel!.text = account.title
-        cell.detailTextLabel!.text = String(account.balance)
         
-        return cell
+        if let realtimeBalance = account.realtimeBalance {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell realtime balance", for: indexPath) as! CustomTableViewCell
+            
+            cell.labelTitle.text = account.title
+            cell.labelSubtitle.text = "Realtime Balance: \(String(realtimeBalance))"
+            cell.labelAmount.text = String(account.balance)
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            
+            cell.textLabel!.text = account.title
+            cell.detailTextLabel!.text = String(account.balance)
+            
+            return cell
+        }
     }
     
     // MARK: - VOID METHODS
@@ -80,6 +91,8 @@ class AccountsViewController: FetchedResultsTableViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
         updateUI()
     }
 
