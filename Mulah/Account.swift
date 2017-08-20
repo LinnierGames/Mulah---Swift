@@ -24,43 +24,14 @@ extension Account {
         self.title = title
         self.dateCreated = date as NSDate
     }
-    
-    public var balance: _Decimal {
-        if let managedObjectContext = self.managedObjectContext {
-            let fetchTransactions: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-            fetchTransactions.predicate = NSPredicate(format: "fromAccount == %@", self)
-            let transactions = try! managedObjectContext.fetch(fetchTransactions)
-            let transactionBalance = transactions.reduce(0, { (balance, transaction) -> _Decimal in
-                return balance + transaction.amount
-            })
-            
-            let fetchTransfers: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-            fetchTransfers.predicate = NSPredicate(format: "toAccount == %@", self)
-            let transfers = try! managedObjectContext.fetch(fetchTransfers)
-            let transferBalance = transfers.reduce(0, { (balance, transaction) -> _Decimal in
-                return balance + (transaction.amount * -1)
-            })
-            
-            return transactionBalance + transferBalance
-        }
-        fatalError()
-    }
 }
 
 extension NSManagedObjectContext {
+    public func listOfBalances() -> [Balance] {
+        return ((try! AppDelegate.viewContext.fetch(Balance.fetchRequest())) as! [Balance])
+    }
+    
     public func listOfAccounts() -> [Account] {
         return ((try! AppDelegate.viewContext.fetch(Account.fetchRequest())) as! [Account])
-    }
-}
-
-extension UIAlertController {
-    public convenience init(title: String?, message: String? = "select an account", forAccounts accounts: [Account], handler: @escaping (Account) -> Swift.Void) {
-        self.init(title: title, message: message, preferredStyle: .actionSheet)
-        for account in accounts {
-            self.addAction(UIAlertAction(title: account.title, style: .default, handler: { (action) in
-                handler(account)
-            }))
-        }
-        self.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     }
 }

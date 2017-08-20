@@ -10,6 +10,7 @@
 		E907F33D1F47B62B00B52934 /* MoneyBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E907F33C1F47B62B00B52934 /* MoneyBookViewController.swift */; };
 		E910717C1F48E2B2008AA490 /* SafeBoxesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910717B1F48E2B2008AA490 /* SafeBoxesTableViewController.swift */; };
 		E910717F1F48E462008AA490 /* SafeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910717E1F48E462008AA490 /* SafeBox.swift */; };
+		E91071811F4969C1008AA490 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91071801F4969C1008AA490 /* Balance.swift */; };
 		E96ED7AC1F4670FB0074AE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */; };
 		E96ED7AE1F4670FB0074AE37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7AD1F4670FB0074AE37 /* ViewController.swift */; };
 		E96ED7B11F4670FB0074AE37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96ED7AF1F4670FB0074AE37 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		E907F33C1F47B62B00B52934 /* MoneyBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyBookViewController.swift; sourceTree = "<group>"; };
 		E910717B1F48E2B2008AA490 /* SafeBoxesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeBoxesTableViewController.swift; sourceTree = "<group>"; };
 		E910717E1F48E462008AA490 /* SafeBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeBox.swift; sourceTree = "<group>"; };
+		E91071801F4969C1008AA490 /* Balance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		E96ED7A81F4670FB0074AE37 /* Mulah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mulah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96ED7AD1F4670FB0074AE37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				E96ED7BA1F4670FB0074AE37 /* Info.plist */,
 				E96ED7B21F4670FB0074AE37 /* Mulah.xcdatamodeld */,
 				E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */,
+				E91071801F4969C1008AA490 /* Balance.swift */,
 				E96ED7E01F47522C0074AE37 /* Account.swift */,
 				E910717E1F48E462008AA490 /* SafeBox.swift */,
 				E96ED7EC1F479FBD0074AE37 /* Transaction.swift */,
@@ -339,6 +342,7 @@
 				E910717F1F48E462008AA490 /* SafeBox.swift in Sources */,
 				E96ED7AC1F4670FB0074AE37 /* AppDelegate.swift in Sources */,
 				E907F33D1F47B62B00B52934 /* MoneyBookViewController.swift in Sources */,
+				E91071811F4969C1008AA490 /* Balance.swift in Sources */,
 				E96ED7E11F47522C0074AE37 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

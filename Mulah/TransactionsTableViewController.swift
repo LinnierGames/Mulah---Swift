@@ -55,7 +55,7 @@ class TransactionsTableViewController: FetchedResultsTableViewController, Custom
         let transaction = fetchedResultsValue.object(at: indexPath)
         if let expandedIndexPath = selectedIndexPath {
             if expandedIndexPath == indexPath {
-                if transaction.toAccount != nil {
+                if transaction.toBalance != nil {
                     cell = tableView.dequeueReusableCell(withIdentifier: "transaction expanded transfer", for: indexPath) as! CustomTableViewCell
                     cell.delegate = self
                 } else {
