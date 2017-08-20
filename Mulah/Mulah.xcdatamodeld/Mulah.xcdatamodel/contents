@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Accounts" representedClassName="Account" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="typeValue" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -21,7 +22,7 @@
         <relationship name="toAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="deposits" inverseEntity="Accounts" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Accounts" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Accounts" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="Transactions" positionX="-54" positionY="18" width="128" height="150"/>
         <element name="SafeBoxes" positionX="-63" positionY="63" width="128" height="60"/>
     </elements>

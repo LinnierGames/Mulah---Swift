@@ -18,10 +18,11 @@ extension Account {
         return fetch
     }
     
-    public convenience init(title: String = "Untitled", `in` context: NSManagedObjectContext) {
+    public convenience init(title: String = "Untitled", dateCreated date: Date = Date(), `in` context: NSManagedObjectContext) {
         self.init(context: context)
         
         self.title = title
+        self.dateCreated = date as NSDate
     }
     
     public var balance: _Decimal {
@@ -48,12 +49,12 @@ extension Account {
 
 extension NSManagedObjectContext {
     public func listOfAccounts() -> [Account] {
-        return (try! AppDelegate.viewContext.fetch(Account.fetchRequest())) as! [Account]
+        return ((try! AppDelegate.viewContext.fetch(Account.fetchRequest())) as! [Account])
     }
 }
 
 extension UIAlertController {
-    public convenience init(title: String?, message: String?, forAccounts accounts: [Account], handler: @escaping (Account) -> Swift.Void) {
+    public convenience init(title: String?, message: String? = "select an account", forAccounts accounts: [Account], handler: @escaping (Account) -> Swift.Void) {
         self.init(title: title, message: message, preferredStyle: .actionSheet)
         for account in accounts {
             self.addAction(UIAlertAction(title: account.title, style: .default, handler: { (action) in

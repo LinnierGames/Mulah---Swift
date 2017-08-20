@@ -47,6 +47,15 @@ class CustomTableViewCell: UITableViewCell {
         }
     }
     
+    public var safeBox: SafeBox! {
+        didSet {
+            if safeBox != nil {
+                self.textLabel!.text = safeBox.title
+                self.detailTextLabel!.text = String(safeBox.balance)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

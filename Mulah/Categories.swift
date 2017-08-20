@@ -9,6 +9,12 @@
 import UIKit
 import CoreData
 
+extension UIViewController {
+    @IBAction func pressDismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
 extension UITableView {
     
     func returnCell(forIdentifier identifier: String = "cell", atIndexPath indexPath: IndexPath) -> UITableViewCell {

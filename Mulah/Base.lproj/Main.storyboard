@@ -445,7 +445,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" id="oBb-Ca-s4M"/>
+                            <barButtonItem systemItem="edit" id="oBb-Ca-s4M"/>
                             <barButtonItem systemItem="add" id="AU1-Te-2d8">
                                 <connections>
                                     <action selector="pressAdd:" destination="p2e-of-TBN" id="x17-Rx-Z3f"/>
@@ -461,16 +461,16 @@
             </objects>
             <point key="canvasLocation" x="1852" y="707"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Safe Boxes-->
         <scene sceneID="pY2-8K-dXi">
             <objects>
-                <tableViewController id="fww-lM-8Th" sceneMemberID="viewController">
+                <tableViewController id="fww-lM-8Th" customClass="SafeBoxesTableViewController" customModule="Mulah" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hKB-If-kfT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="uZc-9s-vyO" detailTextLabel="zkp-Dk-zSE" style="IBUITableViewCellStyleValue1" id="FJp-eM-aiw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="uZc-9s-vyO" detailTextLabel="zkp-Dk-zSE" style="IBUITableViewCellStyleValue1" id="FJp-eM-aiw" customClass="CustomTableViewCell" customModule="Mulah" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJp-eM-aiw" id="21K-j4-Eu4">
@@ -500,8 +500,20 @@
                             <outlet property="delegate" destination="fww-lM-8Th" id="ABa-lY-KjS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9XO-3c-Tpe">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Q8o-sl-8pF"/>
+                    <navigationItem key="navigationItem" title="Safe Boxes" id="9XO-3c-Tpe">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Q8o-sl-8pF">
+                            <connections>
+                                <action selector="pressDismiss:" destination="fww-lM-8Th" id="enl-RR-rmS"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="lqz-Vc-78N"/>
+                            <barButtonItem systemItem="add" id="mms-FJ-Xf6">
+                                <connections>
+                                    <action selector="pressAdd:" destination="fww-lM-8Th" id="XLg-RN-qit"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uax-58-AtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
