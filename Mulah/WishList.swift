@@ -9,6 +9,15 @@
 import Foundation
 import CoreData
 
+extension WishListGroup {
+    convenience init(title: String = "Untitled Group", dateCreated date: Date = Date(), `in` context: NSManagedObjectContext) {
+        self.init(context: context)
+        
+        self.title = title
+        self.dateCreated = date as NSDate
+    }
+}
+
 extension WishList {
     convenience init(title: String = "Untitled", dateCreated date: Date = Date(), physicalAccount account: Account, `in` context: NSManagedObjectContext) {
         self.init(context: context)
