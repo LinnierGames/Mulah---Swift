@@ -24,10 +24,10 @@ class MoneyBookViewController: UIViewController {
         alert.addActions(actions: UIAlertActionInfo(title: "Next", handler: { [weak alert, weak self] (action) in
             if let amount = Double(alert!.inputField.text!) {
                 let alertAccount = UIAlertController(title: nil, message: "select an account", preferredStyle: .actionSheet)
-                let listOfAccounts = AppDelegate.viewContext.listOfAccounts()
-                for account in listOfAccounts {
-                    alertAccount.addAction(UIAlertAction(title: account.title, style: .default, handler: { (action) in
-                        _ = Transaction(amount: amount, fromAccount: account, in: AppDelegate.viewContext)
+                let listOfBalances = AppDelegate.viewContext.listOfBalances()
+                for balance in listOfBalances {
+                    alertAccount.addAction(UIAlertAction(title: balance.title, style: .default, handler: { (action) in
+                        _ = Transaction(amount: amount, fromBalance: balance, in: AppDelegate.viewContext)
                         AppDelegate.instance.saveContext()
                     }))
                 }
@@ -41,8 +41,8 @@ class MoneyBookViewController: UIViewController {
     }
     
     private func addTransfer() {
-        let alertFromAccount = UIAlertController(title: "From Account", message: "select an account", forAccounts: AppDelegate.viewContext.listOfAccounts(), handler: { [weak self] (fromAccount) in
-            let alertToAccount = UIAlertController(title: "To Account", message: "select an account", forAccounts: AppDelegate.viewContext.listOfAccounts(), handler: { [weak self] (toAccount) in
+        let alertFromAccount = UIAlertController(title: "From Account", message: "select an account", forBalances: AppDelegate.viewContext.listOfBalances(), handler: { [weak self] (fromAccount) in
+            let alertToAccount = UIAlertController(title: "To Account", message: "select an account", forBalances: AppDelegate.viewContext.listOfBalances(), handler: { [weak self] (toAccount) in
                 let alertAmount = UIAlertController(title: nil, message: "enter the amount", preferredStyle: .alert)
                 alertAmount.addTextField { (textField) in
                     textField.keyboardType = .numberPad
@@ -50,7 +50,7 @@ class MoneyBookViewController: UIViewController {
                 }
                 alertAmount.addActions(actions:
                     UIAlertActionInfo(title: "Add", handler: { (action) in
-                        _ = Transaction(amount: -Double(alertAmount.inputField.text!)!, fromAccount: fromAccount, toAccount: toAccount, in: AppDelegate.viewContext)
+                        _ = Transaction(amount: -Double(alertAmount.inputField.text!)!, fromBalance: fromAccount, toBalance: toAccount, in: AppDelegate.viewContext)
                         AppDelegate.instance.saveContext()
                     })
                 )

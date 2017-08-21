@@ -18,6 +18,7 @@ class CustomTableViewCell: UITableViewCell {
     var delegate: CustomTableViewCellDelegate?
 
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelSubtitle: UILabel!
     @IBOutlet weak var labelAccount: UILabel!
     @IBOutlet weak var labelAmount: UILabel!
     @IBOutlet weak var imageColor: UIImageView!
@@ -34,15 +35,24 @@ class CustomTableViewCell: UITableViewCell {
         didSet {
             if transaction != nil {
                 self.labelTitle.text = transaction.title
-                if let transferAccount = transaction.toAccount {
-                    self.button1?.setTitle(transaction.fromAccount!.title, for: .normal)
+                if let transferAccount = transaction.toBalance {
+                    self.button1?.setTitle(transaction.fromBalance!.title, for: .normal)
                     self.button2?.setTitle(transferAccount.title, for: .normal)
                     self.labelAmount.text = String(-transaction.amount)
                 } else {
-                    self.button2?.removeFromSuperview()
                     self.labelAmount.text = String(transaction.amount)
+                    self.button1?.setTitle(transaction.fromBalance!.title, for: .normal)
                 }
                 self.imageColor.backgroundColor = UIColor.blue
+            }
+        }
+    }
+    
+    public var safeBox: SafeBox! {
+        didSet {
+            if safeBox != nil {
+                self.textLabel!.text = safeBox.title
+                self.detailTextLabel!.text = String(safeBox.balance)
             }
         }
     }
