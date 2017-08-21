@@ -11,6 +11,8 @@
 		E910717C1F48E2B2008AA490 /* SafeBoxesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910717B1F48E2B2008AA490 /* SafeBoxesTableViewController.swift */; };
 		E910717F1F48E462008AA490 /* SafeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910717E1F48E462008AA490 /* SafeBox.swift */; };
 		E91071811F4969C1008AA490 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91071801F4969C1008AA490 /* Balance.swift */; };
+		E91719671F4B7D7000CF3A82 /* WishListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91719661F4B7D7000CF3A82 /* WishListsTableViewController.swift */; };
+		E917196A1F4B82F800CF3A82 /* WishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91719691F4B82F800CF3A82 /* WishList.swift */; };
 		E96ED7AC1F4670FB0074AE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */; };
 		E96ED7AE1F4670FB0074AE37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7AD1F4670FB0074AE37 /* ViewController.swift */; };
 		E96ED7B11F4670FB0074AE37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96ED7AF1F4670FB0074AE37 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		E910717B1F48E2B2008AA490 /* SafeBoxesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeBoxesTableViewController.swift; sourceTree = "<group>"; };
 		E910717E1F48E462008AA490 /* SafeBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeBox.swift; sourceTree = "<group>"; };
 		E91071801F4969C1008AA490 /* Balance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		E91719661F4B7D7000CF3A82 /* WishListsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListsTableViewController.swift; sourceTree = "<group>"; };
+		E91719691F4B82F800CF3A82 /* WishList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishList.swift; sourceTree = "<group>"; };
 		E96ED7A81F4670FB0074AE37 /* Mulah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mulah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96ED7AD1F4670FB0074AE37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,14 @@
 			name = Accounts;
 			sourceTree = "<group>";
 		};
+		E91719681F4B7D8C00CF3A82 /* Wish Lists */ = {
+			isa = PBXGroup;
+			children = (
+				E91719661F4B7D7000CF3A82 /* WishListsTableViewController.swift */,
+			);
+			name = "Wish Lists";
+			sourceTree = "<group>";
+		};
 		E96ED79F1F4670FB0074AE37 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +155,7 @@
 				E96ED7AD1F4670FB0074AE37 /* ViewController.swift */,
 				E910717D1F48E2B6008AA490 /* Accounts */,
 				E907F33E1F47E62200B52934 /* Money Book */,
+				E91719681F4B7D8C00CF3A82 /* Wish Lists */,
 				E96ED7AF1F4670FB0074AE37 /* Main.storyboard */,
 				E96ED7E71F47596D0074AE37 /* Supporting Files */,
 			);
@@ -187,6 +200,7 @@
 				E91071801F4969C1008AA490 /* Balance.swift */,
 				E96ED7E01F47522C0074AE37 /* Account.swift */,
 				E910717E1F48E462008AA490 /* SafeBox.swift */,
+				E91719691F4B82F800CF3A82 /* WishList.swift */,
 				E96ED7EC1F479FBD0074AE37 /* Transaction.swift */,
 				E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */,
 			);
@@ -330,12 +344,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E917196A1F4B82F800CF3A82 /* WishList.swift in Sources */,
 				E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */,
 				E96ED7AE1F4670FB0074AE37 /* ViewController.swift in Sources */,
 				E96ED7EF1F47AF8E0074AE37 /* CustomTableViewCell.swift in Sources */,
 				E96ED7E51F47535A0074AE37 /* Categories.swift in Sources */,
 				E96ED7DF1F4689EB0074AE37 /* FetchedResultsTableViewController.swift in Sources */,
 				E96ED7ED1F479FBD0074AE37 /* Transaction.swift in Sources */,
+				E91719671F4B7D7000CF3A82 /* WishListsTableViewController.swift in Sources */,
 				E96ED7B41F4670FB0074AE37 /* Mulah.xcdatamodeld in Sources */,
 				E96ED7DD1F4689850074AE37 /* AccountsViewController.swift in Sources */,
 				E910717C1F48E2B2008AA490 /* SafeBoxesTableViewController.swift in Sources */,
