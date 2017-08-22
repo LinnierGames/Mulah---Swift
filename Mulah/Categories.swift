@@ -57,7 +57,8 @@ public struct UIAlertActionInfo {
 }
 
 extension UIAlertController {
-    convenience init(alertWithTitle title: String?, message: String? = nil, action: UIAlertAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)) {
+    /// Quickly add an alert message with the action title of Dimiss
+    convenience init(alertWithTitle title: String? = nil, message: String? = nil, action: UIAlertAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)) {
         self.init(title: title, message: message, preferredStyle: .alert)
         self.addAction(action)
     }

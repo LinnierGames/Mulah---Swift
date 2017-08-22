@@ -11,7 +11,19 @@ import CoreData
 
 class FetchedResultsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var fetchedResultsController: NSFetchedResultsController<NSManagedObject>!
+    var fetchedResultsController: NSFetchedResultsController<NSManagedObject>! {
+        didSet {
+            if let controller = fetchedResultsController {
+                controller.delegate = self
+                do {
+                    try controller.performFetch()
+                } catch {
+                    print(error.localizedDescription)
+                }
+                tableView.reloadData()
+            }
+        }
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0

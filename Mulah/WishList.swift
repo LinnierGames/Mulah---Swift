@@ -19,10 +19,12 @@ extension WishListGroup {
 }
 
 extension WishList {
-    convenience init(title: String = "Untitled", dateCreated date: Date = Date(), physicalAccount account: Account, `in` context: NSManagedObjectContext) {
+    convenience init(title: String = "Untitled", dateCreated date: Date = Date(), amount: _Decimal, physicalAccount account: Account, group: WishListGroup, `in` context: NSManagedObjectContext) {
         self.init(context: context)
         
         self.title = title
+        self.amount = amount
+        self.group = group
         self.dateCreated = date as NSDate
         self.physicalAccount = account
     }
