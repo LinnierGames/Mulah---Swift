@@ -3,6 +3,7 @@
     <entity name="Accounts" representedClassName="Account" parentEntity="Balances" syncable="YES" codeGenerationType="class">
         <attribute name="typeValue" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="safeBoxes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SafeBoxes" inverseName="physicalAccount" inverseEntity="SafeBoxes" syncable="YES"/>
+        <relationship name="wishLists" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WishListItems" inverseName="physicalAccount" inverseEntity="WishListItems" syncable="YES"/>
     </entity>
     <entity name="Balances" representedClassName="Balance" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -11,8 +12,13 @@
         <relationship name="deposits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transactions" inverseName="toBalance" inverseEntity="Transactions" syncable="YES"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transactions" inverseName="fromBalance" inverseEntity="Transactions" syncable="YES"/>
     </entity>
+    <entity name="Group_WishLists" representedClassName="WishListGroup" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WishListItems" inverseName="group" inverseEntity="WishListItems" syncable="YES"/>
+    </entity>
     <entity name="SafeBoxes" representedClassName="SafeBox" parentEntity="Balances" syncable="YES" codeGenerationType="class">
-        <relationship name="physicalAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="safeBoxes" inverseEntity="Accounts" syncable="YES"/>
+        <relationship name="physicalAccount" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="safeBoxes" inverseEntity="Accounts" syncable="YES"/>
     </entity>
     <entity name="Transactions" representedClassName="Transaction" syncable="YES" codeGenerationType="class">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -23,10 +29,17 @@
         <relationship name="fromBalance" maxCount="1" deletionRule="Nullify" destinationEntity="Balances" inverseName="transactions" inverseEntity="Balances" syncable="YES"/>
         <relationship name="toBalance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Balances" inverseName="deposits" inverseEntity="Balances" syncable="YES"/>
     </entity>
+    <entity name="WishListItems" representedClassName="WishListItem" parentEntity="Balances" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group_WishLists" inverseName="items" inverseEntity="Group_WishLists" syncable="YES"/>
+        <relationship name="physicalAccount" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="wishLists" inverseEntity="Accounts" syncable="YES"/>
+    </entity>
     <elements>
+        <element name="Accounts" positionX="-45" positionY="72" width="128" height="90"/>
         <element name="Balances" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Transactions" positionX="-54" positionY="18" width="128" height="150"/>
         <element name="SafeBoxes" positionX="-63" positionY="63" width="128" height="60"/>
-        <element name="Accounts" positionX="-45" positionY="72" width="128" height="75"/>
+        <element name="Transactions" positionX="-54" positionY="18" width="128" height="150"/>
+        <element name="WishListItems" positionX="-63" positionY="63" width="128" height="90"/>
+        <element name="Group_WishLists" positionX="-54" positionY="72" width="128" height="90"/>
     </elements>
 </model>
