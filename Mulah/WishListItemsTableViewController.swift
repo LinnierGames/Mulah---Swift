@@ -11,8 +11,8 @@ import CoreData
 
 class WishListItemsTableViewController: FetchedResultsTableViewController {
     
-    private var fetchedResultsValue: NSFetchedResultsController<WishList> {
-        return fetchedResultsController as! NSFetchedResultsController<WishList>
+    private var fetchedResultsValue: NSFetchedResultsController<WishListItem> {
+        return fetchedResultsController as! NSFetchedResultsController<WishListItem>
     }
     
     var wishListGroup: WishListGroup!
@@ -32,7 +32,7 @@ class WishListItemsTableViewController: FetchedResultsTableViewController {
     // MARK: - VOID METHODS
     
     private func updateUI() {
-        let fetch: NSFetchRequest<WishList> = WishList.fetchRequest()
+        let fetch: NSFetchRequest<WishListItem> = WishListItem.fetchRequest()
         fetch.predicate = NSPredicate(format: "group == %@", wishListGroup)
         fetch.sortDescriptors = [NSSortDescriptor(key: "title", ascending: false)]
         fetchedResultsController = NSFetchedResultsController<NSManagedObject>(
@@ -78,7 +78,7 @@ class WishListItemsTableViewController: FetchedResultsTableViewController {
             })
             alertAmount.addActions(actions: UIAlertActionInfo(title: "Next", handler: { [weak self] (action) in
                 let alertAccounts = UIAlertController(title: nil, forBalances: AppDelegate.viewContext.listOfAccounts(), handler: { (account) in
-                    _ = WishList(title: alertTitle.inputField.text!, amount: _Decimal(alertAmount.inputField.text!)!, physicalAccount: account, group: self!.wishListGroup, in: AppDelegate.viewContext)
+                    _ = WishListItem(title: alertTitle.inputField.text!, amount: _Decimal(alertAmount.inputField.text!)!, physicalAccount: account, group: self!.wishListGroup, in: AppDelegate.viewContext)
                     AppDelegate.instance.saveContext()
                 })
                 self!.present(alertAccounts, animated: true, completion: nil)

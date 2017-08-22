@@ -42,11 +42,18 @@ extension Balance {
             return safeBox.balance + sum
         }
         
-        if safeBoxes.count == 0 { // && wishLists.count == 0, etc
+        let fetchWishLists: NSFetchRequest<WishListItem> = WishListItem.fetchRequest()
+        fetchWishLists.predicate = NSPredicate(format: "physicalAccount == %@", self)
+        let wishListItems = try! self.managedObjectContext!.fetch(fetchWishLists)
+        let wishListItemsSum = wishListItems.reduce(0) { (sum, item) -> _Decimal in
+            return item.balance + sum
+        }
+        
+        if safeBoxes.reduce(0, { $0 + $1.balance }) == 0 && wishListItems.reduce(0, { $0 + $1.balance }) == 0 { // && wishLists.count == 0, etc
             return nil
         }
         
-        return physicalBalance + safeBoxesSum
+        return physicalBalance + safeBoxesSum + wishListItemsSum
     }
 }
 
