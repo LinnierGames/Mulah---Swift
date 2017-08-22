@@ -58,7 +58,7 @@ extension Balance {
 }
 
 extension UIAlertController {
-    public convenience init<T:Balance>(title: String?, message: String? = "select an account", forBalances balances: [T], handler: @escaping (T) -> Swift.Void) {
+    public convenience init<T:Balance>(title: String? = nil, message: String? = "select an account", forBalances balances: [T], handler: @escaping (T) -> Swift.Void) {
         self.init(title: title, message: message, preferredStyle: .actionSheet)
         for balance in balances {
             self.addAction(UIAlertAction(title: balance.title, style: .default, handler: { (action) in

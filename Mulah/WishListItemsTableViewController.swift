@@ -94,6 +94,7 @@ class WishListItemsTableViewController: FetchedResultsTableViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.title = wishListGroup.title
         updateUI()
     }
 }

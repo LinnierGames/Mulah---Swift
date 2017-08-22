@@ -72,7 +72,7 @@ class SafeBoxesTableViewController: FetchedResultsTableViewController {
         alertTitle.addActions(actions:
             UIAlertActionInfo(title: "Next", handler: { [weak self] (action) in
                 let alertAccounts = UIAlertController(title: nil, forBalances: AppDelegate.viewContext.listOfAccounts(), handler: { (account) in
-                    _ = SafeBox(title: alertTitle.inputField.text!, physicalAccount: account as! Account, in: AppDelegate.viewContext)
+                    _ = SafeBox(title: alertTitle.inputField.text!, physicalAccount: account, in: AppDelegate.viewContext)
                     AppDelegate.instance.saveContext()
                 })
                 self!.present(alertAccounts, animated: true, completion: nil)

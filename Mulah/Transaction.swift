@@ -13,10 +13,18 @@ import CoreData
 public typealias _Decimal = Double
 
 extension Transaction {
-    convenience init(title: String = "Untitled", amount: _Decimal = 0.00, date: Date = Date(), fromBalance: Balance, toBalance: Balance? = nil, `in` context: NSManagedObjectContext) {
+    convenience init(title: String? = nil, amount: _Decimal = 0.00, date: Date = Date(), fromBalance: Balance, toBalance: Balance? = nil, `in` context: NSManagedObjectContext) {
         self.init(context: context)
         
-        self.title = title
+        if title == nil {
+            if amount >= 0 {
+                self.title = "Income"
+            } else {
+                self.title = "Expense"
+            }
+        } else {
+            self.title = title
+        }
         self.amount = amount
         self.fromBalance = fromBalance
         self.toBalance = toBalance
