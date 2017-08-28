@@ -62,7 +62,7 @@ extension UIAlertController {
         self.init(title: title, message: message, preferredStyle: .alert)
         self.addAction(action)
     }
-    open func addActions(cancelButton cancel: String? = "Cancel", alertStyle: UIAlertControllerStyle = .alert, actions: UIAlertActionInfo...) {
+    open func addActions(cancelButton cancel: String? = "Cancel", actions: UIAlertActionInfo...) {
         for action in actions {
             self.addAction(UIAlertAction(title: action.title, style: action.style, handler: action.handler))
         }

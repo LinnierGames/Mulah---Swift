@@ -40,7 +40,7 @@ class MoneyBookViewController: UIViewController {
             let alertToAccount = UIAlertController(title: "To Account", message: "select an account", forBalances: AppDelegate.viewContext.listOfBalances().filter { $0 != fromAccount }, handler: { [weak self] (toAccount) in
                 let alertAmount = UIAlertController(title: nil, message: "enter the amount", preferredStyle: .alert)
                 alertAmount.addTextField { (textField) in
-                    textField.keyboardType = .numberPad
+                    textField.keyboardType = .numbersAndPunctuation
                     textField.placeholder = "amount"
                 }
                 alertAmount.addActions(actions:

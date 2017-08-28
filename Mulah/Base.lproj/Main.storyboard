@@ -400,16 +400,16 @@
             </objects>
             <point key="canvasLocation" x="2628.8000000000002" y="-29.23538230884558"/>
         </scene>
-        <!--Accounts View Controller-->
+        <!--Accounts-->
         <scene sceneID="RSi-4S-JBE">
             <objects>
                 <tableViewController id="p2e-of-TBN" customClass="AccountsViewController" customModule="Mulah" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hot-Fn-zE0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hot-Fn-zE0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell realtime balance" id="hOu-dx-Svg" customClass="CustomTableViewCell" customModule="Mulah" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell realtime balance" editingAccessoryType="disclosureIndicator" id="hOu-dx-Svg" customClass="CustomTableViewCell" customModule="Mulah" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOu-dx-Svg" id="Rdk-oM-OQ3">
@@ -464,7 +464,7 @@
                                     <outlet property="labelTitle" destination="BS6-ft-JBH" id="gS2-Hg-YxR"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="JQn-7Z-KAV" detailTextLabel="tRt-rO-b0b" style="IBUITableViewCellStyleValue1" id="OSu-d7-NY3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" editingAccessoryType="disclosureIndicator" textLabel="JQn-7Z-KAV" detailTextLabel="tRt-rO-b0b" style="IBUITableViewCellStyleValue1" id="OSu-d7-NY3">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OSu-d7-NY3" id="gYW-gu-eQo">
@@ -502,7 +502,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="ybI-lR-pwG">
+                    <navigationItem key="navigationItem" title="Accounts" id="ybI-lR-pwG">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="k5Y-89-muq">
                             <connections>
                                 <action selector="pressDone:" destination="p2e-of-TBN" id="ALj-fF-XvP"/>

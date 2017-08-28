@@ -65,6 +65,45 @@ class AccountsViewController: FetchedResultsTableViewController {
         )
     }
     
+    // MARK: Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.isEditing {
+            let account = fetchedResultsValue.object(at: indexPath)
+            let alertBalance = UIAlertController(title: "Updating the Balance", message: "enter a balance", preferredStyle: .alert)
+            alertBalance.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = String(account.balance)
+            })
+            alertBalance.addActions(actions:
+                UIAlertActionInfo(title: "Update", handler: { (action) in
+                    if let newBalance = _Decimal(alertBalance.inputField.text!) {
+                        let alertUpdateType = UIAlertController(title: "Updating the Balance", message: "select what would you like to update", preferredStyle: .actionSheet)
+                        func insertUpdatingTransaction(withOffset deciaml: _Decimal) {
+                            let balance = newBalance - deciaml
+                            _ = Transaction(title: "Update Balance", amount: balance, fromBalance: account, in: AppDelegate.viewContext)
+                            AppDelegate.instance.saveContext()
+                            
+                        }
+                        alertUpdateType.addActions(actions:
+                            UIAlertActionInfo(title: "Balance", handler: { (alert) in
+                                insertUpdatingTransaction(withOffset: account.balance)
+                            })
+                        )
+                        if account.realtimeBalance != nil {
+                            alertUpdateType.addAction(UIAlertAction(title: "Realtime Balance", style: .default, handler: { (action) in
+                                insertUpdatingTransaction(withOffset: account.realtimeBalance!)
+                            }))
+                        }
+                        self.present(alertUpdateType, animated: true, completion: nil)
+                    } else {
+                        self.present(UIAlertController(alertWithTitle: "Updating the Balance", message: "invalid amount"), animated: true, completion: nil)
+                    }
+                })
+            )
+            self.present(alertBalance, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - IBACTIONS
     
     @IBOutlet weak var buttonAdd: UIBarButtonItem!
