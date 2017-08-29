@@ -65,19 +65,6 @@ class MoneyBookViewController: UIViewController {
     // MARK: - IBACTIONS
     
     @IBOutlet weak var buttonAdd: UIBarButtonItem!
-    @IBAction func pressAdd(_ sender: Any) {
-        // TODO: Add Account Module
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addActions(actions:
-            UIAlertActionInfo(title: "Transaction", handler: { [weak self] (action) in
-                self!.addTransaction()
-            }),
-            UIAlertActionInfo(title: "Transfer", handler: { [weak self] (action) in
-                self!.addTransfer()
-            })
-        )
-        self.present(alert, animated: true, completion: nil)
-    }
     
     @IBAction func pressDone(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
