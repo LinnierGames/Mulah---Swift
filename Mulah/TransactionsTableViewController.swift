@@ -11,19 +11,8 @@ import CoreData
 
 class TransactionsTableViewController: FetchedResultsTableViewController, CustomTableViewCellDelegate {
     
-    override var fetchedResultsController: NSFetchedResultsController<NSManagedObject>! {
-        didSet {
-            if let controller = fetchedResultsController {
-                controller.delegate = self
-                do {
-                    try controller.performFetch()
-                } catch {
-                    print(error.localizedDescription)
-                }
-                tableView.reloadData()
-            }
-        }
-    }
+    // TODO Unifiy cells
+    var fetchRequest: NSFetchRequest<Transaction>?
     
     private var fetchedResultsValue: NSFetchedResultsController<Transaction> {
         return fetchedResultsController as! NSFetchedResultsController<Transaction>
@@ -77,8 +66,13 @@ class TransactionsTableViewController: FetchedResultsTableViewController, Custom
     // MARK: - VOID METHODS
     
     private func updateUI() {
-        let fetch: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-        fetch.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        let fetch: NSFetchRequest<Transaction>
+        if fetchRequest == nil {
+            fetch = Transaction.fetchRequest()
+            fetch.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        } else {
+            fetch = fetchRequest!
+        }
         fetchedResultsController = NSFetchedResultsController<NSManagedObject>(
             fetchRequest: fetch as! NSFetchRequest<NSManagedObject>,
             managedObjectContext: AppDelegate.viewContext,

@@ -79,6 +79,10 @@ class MoneyBookViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var buttonSearch: UIBarButtonItem!
+    @IBAction func pressSearch(_ sender: Any) {
+    }
+    
     @IBAction func pressDone(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

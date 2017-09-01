@@ -65,6 +65,22 @@ class AccountsViewController: FetchedResultsTableViewController {
         )
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "show transactions":
+                let vc = segue.destination as! TransactionsTableViewController
+                let account = fetchedResultsValue.object(at: sender as! IndexPath)
+                let fetch: NSFetchRequest<Transaction> = Transaction.fetchRequest()
+                fetch.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+                fetch.predicate = NSPredicate(format: "fromBalance == %@ OR toBalance == %@", account, account)
+                vc.fetchRequest = fetch
+            default:
+                break
+            }
+        }
+    }
+    
     // MARK: Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -101,6 +117,8 @@ class AccountsViewController: FetchedResultsTableViewController {
                 })
             )
             self.present(alertBalance, animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "show transactions", sender: indexPath)
         }
     }
     

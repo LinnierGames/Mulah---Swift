@@ -96,18 +96,35 @@
                                 <action selector="pressDone:" destination="qnp-Ql-1gp" id="y37-rZ-kQS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Va3-sf-wq0">
-                            <connections>
-                                <action selector="pressAdd:" destination="qnp-Ql-1gp" id="avf-ct-ZGX"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="search" id="Shx-Re-gmB">
+                                <connections>
+                                    <action selector="pressSearch:" destination="qnp-Ql-1gp" id="JNF-yz-AcY"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="Va3-sf-wq0">
+                                <connections>
+                                    <action selector="pressAdd:" destination="qnp-Ql-1gp" id="avf-ct-ZGX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="buttonAdd" destination="Va3-sf-wq0" id="kl7-b2-yA4"/>
+                        <outlet property="buttonSearch" destination="Shx-Re-gmB" id="BoR-4Y-ZeA"/>
+                        <outlet property="searchDisplayController" destination="1u4-y4-15x" id="dnP-PJ-Adk"/>
                         <outlet property="tableController" destination="bkB-Zp-Hcb" id="ZTv-Wo-bzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyg-Ie-hSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="1u4-y4-15x">
+                    <connections>
+                        <outlet property="delegate" destination="qnp-Ql-1gp" id="LL8-vf-ZQj"/>
+                        <outlet property="searchContentsController" destination="qnp-Ql-1gp" id="ddi-pV-o6L"/>
+                        <outlet property="searchResultsDataSource" destination="qnp-Ql-1gp" id="xuC-59-BWb"/>
+                        <outlet property="searchResultsDelegate" destination="qnp-Ql-1gp" id="HZW-dC-oR7"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1848.8" y="-28.335832083958024"/>
         </scene>
@@ -124,7 +141,7 @@
                                 <rect key="frame" x="0.0" y="28" width="298" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YoM-Qh-c5x" id="hx0-23-lIs">
-                                    <rect key="frame" x="0.0" y="0.0" width="298" height="32"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="298" height="31.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NiG-3v-OGk">
@@ -171,7 +188,7 @@
                                 <rect key="frame" x="0.0" y="60" width="298" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYY-zK-ibC" id="mXF-Ys-BwW">
-                                    <rect key="frame" x="0.0" y="0.0" width="298" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="298" height="78.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-ad-bfB">
@@ -270,7 +287,7 @@
                                 <rect key="frame" x="0.0" y="139" width="298" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RQX-5Y-JJH" id="rAN-K9-WHe">
-                                    <rect key="frame" x="0.0" y="0.0" width="298" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="298" height="78.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UZL-An-5wb">
@@ -398,7 +415,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twa-ah-K2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628.8000000000002" y="-29.23538230884558"/>
+            <point key="canvasLocation" x="3701" y="-28"/>
         </scene>
         <!--Accounts-->
         <scene sceneID="RSi-4S-JBE">
@@ -413,7 +430,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOu-dx-Svg" id="Rdk-oM-OQ3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PdN-qO-3r5">
@@ -519,6 +536,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonAdd" destination="AU1-Te-2d8" id="FoQ-mC-6NZ"/>
+                        <segue destination="ZCB-6I-Jzm" kind="show" identifier="show transactions" id="ibm-wf-f9Y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAc-aG-jl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -583,6 +601,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uax-58-AtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3703" y="707"/>
+        </scene>
+        <!--Transactions Table View Controller-->
+        <scene sceneID="rHe-i5-Hg4">
+            <objects>
+                <tableViewController id="ZCB-6I-Jzm" customClass="TransactionsTableViewController" customModule="Mulah" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jgY-4t-czh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="transaction" rowHeight="32" id="9zh-qZ-Tjm" customClass="CustomTableViewCell" customModule="Mulah" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="32"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9zh-qZ-Tjm" id="5yq-VV-JrT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mle-Hr-Xw7">
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="31.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aYX-My-zMB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="7" height="31.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="7" id="kOa-Sw-9eI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oO-JH-joA">
+                                                    <rect key="frame" x="15" y="0.0" width="42" height="31.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zh1-cD-ryX">
+                                                    <rect key="frame" x="65" y="0.0" width="295" height="31.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31.5" id="mgY-ay-BGk"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mle-Hr-Xw7" firstAttribute="leading" secondItem="5yq-VV-JrT" secondAttribute="leading" id="NaM-fo-Pru"/>
+                                        <constraint firstItem="mle-Hr-Xw7" firstAttribute="top" secondItem="5yq-VV-JrT" secondAttribute="top" id="usi-Fh-0cv"/>
+                                        <constraint firstAttribute="bottom" secondItem="mle-Hr-Xw7" secondAttribute="bottom" id="vfq-XQ-lgn"/>
+                                        <constraint firstAttribute="trailing" secondItem="mle-Hr-Xw7" secondAttribute="trailing" constant="15" id="wNj-eI-aMl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageColor" destination="aYX-My-zMB" id="U0y-Ob-V1M"/>
+                                    <outlet property="labelAmount" destination="zh1-cD-ryX" id="sm7-y6-0w4"/>
+                                    <outlet property="labelTitle" destination="9oO-JH-joA" id="tAo-ve-Zkd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZCB-6I-Jzm" id="MHC-WL-VRz"/>
+                            <outlet property="delegate" destination="ZCB-6I-Jzm" id="VUP-Om-XQU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27U-ic-foh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2753" y="1394"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nz0-uC-dhC">
@@ -686,7 +771,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCY-N3-yhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="1430"/>
+            <point key="canvasLocation" x="1849" y="2083"/>
         </scene>
         <!--Title-->
         <scene sceneID="H2e-nE-3NX">
@@ -743,7 +828,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wkr-75-5UX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2753" y="1430"/>
+            <point key="canvasLocation" x="2750" y="2083"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KmY-Er-E4U">
