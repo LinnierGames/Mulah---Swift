@@ -33,8 +33,8 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-Dd-RF0">
-                                <rect key="frame" x="145" y="91" width="85" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-Dd-RF0">
+                                <rect key="frame" x="145" y="91" width="85" height="106"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQS-2D-RxA">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
@@ -44,14 +44,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf0-So-a7E">
-                                        <rect key="frame" x="0.0" y="30" width="85" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="85" height="30"/>
                                         <state key="normal" title="IOUs"/>
                                         <connections>
                                             <segue destination="M0V-mJ-0tY" kind="showDetail" identifier="show ious" id="v1h-sB-DQI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkI-ru-XgF">
-                                        <rect key="frame" x="0.0" y="60" width="85" height="30"/>
+                                        <rect key="frame" x="0.0" y="76" width="85" height="30"/>
                                         <state key="normal" title="Wish Lists"/>
                                         <connections>
                                             <segue destination="VGU-A9-btx" kind="showDetail" identifier="show wish lists" id="NEZ-Ev-eE5"/>
@@ -59,19 +59,28 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iou branch" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SS5-h9-MCQ">
+                                <rect key="frame" x="16" y="626.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="SS5-h9-MCQ" firstAttribute="centerX" secondItem="e0y-Dd-RF0" secondAttribute="centerX" id="0aj-FX-tvS"/>
                             <constraint firstItem="TwD-IK-pdM" firstAttribute="top" secondItem="wiT-ID-f2U" secondAttribute="bottom" constant="8" symbolic="YES" id="2Aj-gs-YMn"/>
                             <constraint firstItem="e0y-Dd-RF0" firstAttribute="centerX" secondItem="MrK-kb-oa2" secondAttribute="centerX" id="Gaq-u9-tdM"/>
                             <constraint firstItem="TwD-IK-pdM" firstAttribute="trailing" secondItem="MrK-kb-oa2" secondAttribute="trailingMargin" id="RAI-Sx-VGK"/>
+                            <constraint firstAttribute="bottom" secondItem="SS5-h9-MCQ" secondAttribute="bottom" constant="20" symbolic="YES" id="jFE-O7-hml"/>
+                            <constraint firstItem="SS5-h9-MCQ" firstAttribute="trailing" secondItem="TwD-IK-pdM" secondAttribute="trailing" id="mqs-vU-F4U"/>
                             <constraint firstItem="e0y-Dd-RF0" firstAttribute="top" secondItem="wiT-ID-f2U" secondAttribute="bottom" constant="71" id="v6I-Kq-1Uj"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9l-PS-GWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="200"/>
+            <point key="canvasLocation" x="-7.2000000000000002" y="199.25037481259372"/>
         </scene>
         <!--Money Book View Controller-->
         <scene sceneID="IAZ-0z-CJc">
