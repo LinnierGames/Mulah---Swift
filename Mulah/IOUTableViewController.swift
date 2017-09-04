@@ -46,10 +46,28 @@ class IOUTableViewController: FetchedResultsTableViewController {
      }
      }*/
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let iou = fetchedResultsController.iou(atIndexPath: indexPath)
+        let alertPayment = UIAlertController(title: "Add a Payment", message: "enter an amount", preferredStyle: .alert)
+        alertPayment.addTextField { (textField) in
+            textField.keyboardType = .numbersAndPunctuation
+            textField.placeholder = "amount"
+        }
+        alertPayment.addActions(actions:
+            UIAlertActionInfo(title: "Add", handler: { (action) in
+                let amount = _Decimal(alertPayment.inputField.text!)!
+                _ = Transaction(amount: amount, fromBalance: iou, in: AppDelegate.viewContext)
+                AppDelegate.instance.saveContext()
+            })
+        )
+        self.present(alertPayment, animated: true, completion: nil)
     }
     
     // MARK: - IBACTIONS
