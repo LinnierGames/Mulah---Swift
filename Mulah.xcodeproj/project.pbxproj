@@ -29,6 +29,8 @@
 		E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */; };
 		E96ED7ED1F479FBD0074AE37 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EC1F479FBD0074AE37 /* Transaction.swift */; };
 		E96ED7EF1F47AF8E0074AE37 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */; };
+		E9DDE1BC1F5CEBF900BB9F9D /* IOUTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DDE1BB1F5CEBF900BB9F9D /* IOUTableViewController.swift */; };
+		E9DDE1BE1F5CF94600BB9F9D /* IOU.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DDE1BD1F5CF94600BB9F9D /* IOU.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
 		E96ED7EC1F479FBD0074AE37 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		E9DDE1BB1F5CEBF900BB9F9D /* IOUTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOUTableViewController.swift; sourceTree = "<group>"; };
+		E9DDE1BD1F5CF94600BB9F9D /* IOU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOU.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 				E91719681F4B7D8C00CF3A82 /* Wish Lists */,
 				E96ED7AF1F4670FB0074AE37 /* Main.storyboard */,
 				E96ED7E71F47596D0074AE37 /* Supporting Files */,
+				E9DDE1BB1F5CEBF900BB9F9D /* IOUTableViewController.swift */,
 			);
 			path = Mulah;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				E91071801F4969C1008AA490 /* Balance.swift */,
 				E96ED7E01F47522C0074AE37 /* Account.swift */,
 				E910717E1F48E462008AA490 /* SafeBox.swift */,
+				E9DDE1BD1F5CF94600BB9F9D /* IOU.swift */,
 				E91719691F4B82F800CF3A82 /* WishList.swift */,
 				E96ED7EC1F479FBD0074AE37 /* Transaction.swift */,
 				E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */,
@@ -347,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9DDE1BE1F5CF94600BB9F9D /* IOU.swift in Sources */,
 				E917196C1F4BC84500CF3A82 /* WishListGroupsTableViewController.swift in Sources */,
 				E917196A1F4B82F800CF3A82 /* WishList.swift in Sources */,
 				E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */,
@@ -364,6 +371,7 @@
 				E907F33D1F47B62B00B52934 /* MoneyBookViewController.swift in Sources */,
 				E91071811F4969C1008AA490 /* Balance.swift in Sources */,
 				E96ED7E11F47522C0074AE37 /* Account.swift in Sources */,
+				E9DDE1BC1F5CEBF900BB9F9D /* IOUTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

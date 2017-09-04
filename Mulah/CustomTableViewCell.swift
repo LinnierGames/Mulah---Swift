@@ -21,6 +21,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var labelSubtitle: UILabel!
     @IBOutlet weak var labelAccount: UILabel!
     @IBOutlet weak var labelAmount: UILabel!
+    @IBOutlet weak var labelSum: UILabel!
     @IBOutlet weak var imageColor: UIImageView!
     
     @IBOutlet weak var button: UIButton!
@@ -53,6 +54,17 @@ class CustomTableViewCell: UITableViewCell {
             if safeBox != nil {
                 self.textLabel!.text = safeBox.title
                 self.detailTextLabel!.text = String(safeBox.balance)
+            }
+        }
+    }
+    
+    public var iou: IOU! {
+        didSet {
+            if iou != nil {
+                self.labelTitle.text = iou.title
+                self.labelSubtitle.text = iou.recipient ?? "No Name"
+                self.labelSum.text = "\(iou.balance) paid"
+                self.labelAmount.text = "Amount of \(iou.amount)"
             }
         }
     }

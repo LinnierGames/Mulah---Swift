@@ -17,6 +17,12 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WishListItems" inverseName="group" inverseEntity="WishListItems" syncable="YES"/>
     </entity>
+    <entity name="IOUs" representedClassName="IOU" parentEntity="Balances" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="recipient" optional="YES" attributeType="String" defaultValueString="No Name" syncable="YES"/>
+        <relationship name="physicalAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" syncable="YES"/>
+    </entity>
     <entity name="SafeBoxes" representedClassName="SafeBox" parentEntity="Balances" syncable="YES" codeGenerationType="class">
         <relationship name="physicalAccount" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="safeBoxes" inverseEntity="Accounts" syncable="YES"/>
     </entity>
@@ -36,10 +42,11 @@
     </entity>
     <elements>
         <element name="Accounts" positionX="-45" positionY="72" width="128" height="90"/>
-        <element name="Balances" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Balances" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="Group_WishLists" positionX="-54" positionY="72" width="128" height="90"/>
         <element name="SafeBoxes" positionX="-63" positionY="63" width="128" height="60"/>
         <element name="Transactions" positionX="-54" positionY="18" width="128" height="150"/>
         <element name="WishListItems" positionX="-63" positionY="63" width="128" height="90"/>
-        <element name="Group_WishLists" positionX="-54" positionY="72" width="128" height="90"/>
+        <element name="IOUs" positionX="-63" positionY="63" width="128" height="30"/>
     </elements>
 </model>
