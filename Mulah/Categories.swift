@@ -146,6 +146,9 @@ extension UIColor {
     
     static var disabledState: UIColor { return UIColor(white: 0.65, alpha: 1) }
     static var disabledStateOpacity: CGFloat { return 0.35 }
+    
+    static var currencyIncome: UIColor { return UIColor(red: 0, green: 128/255, blue: 0, alpha: 1) }
+    static var currencyExpense: UIColor { return UIColor(red: 206/255, green: 7/255, blue: 85/255, alpha: 1) }
 }
 
 public extension DispatchQueue {

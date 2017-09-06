@@ -63,13 +63,8 @@ class CustomTableViewCell: UITableViewCell {
             if iou != nil {
                 self.labelTitle.text = iou.title
                 self.labelSubtitle.text = iou.recipient ?? "No Name"
-                if iou.amount >= 0 {
-                    self.labelSum.text = "\(iou.balance) paid"
-                    self.labelAmount.text = "Amount of \(iou.amount)"
-                } else {
-                    self.labelSum.text = "\(abs(iou.amount) - iou.balance) left"
-                    self.labelAmount.text = "Amount of \(abs(iou.amount))"
-                }
+                self.labelSum.text = "\(abs(iou.amount) - iou.balance) left"
+                self.labelAmount.text = "Total \(abs(iou.amount))"
             }
         }
     }

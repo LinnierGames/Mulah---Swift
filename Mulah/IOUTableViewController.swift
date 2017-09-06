@@ -25,7 +25,12 @@ class IOUTableViewController: FetchedResultsTableViewController {
     
     private func updateUI() {
         let fetch: NSFetchRequest<IOU> = IOU.fetchRequest()
-        fetch.sortDescriptors = [NSSortDescriptor(key: "recipient", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))]
+        fetch.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))]
+        if state == .IOweYou {
+            fetch.predicate = NSPredicate(format: "amount < 0")
+        } else {
+            fetch.predicate = NSPredicate(format: "amount >= 0")
+        }
         fetchedResultsController = NSFetchedResultsController<NSManagedObject>(
             fetchRequest: fetch as! NSFetchRequest<NSManagedObject>,
             managedObjectContext: AppDelegate.viewContext,
@@ -53,6 +58,14 @@ class IOUTableViewController: FetchedResultsTableViewController {
     
     // MARK Table View Delegate
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let ious = fetchedResultsController.fetchedObjects as! [IOU]? {
+            return "Sum: $\(abs(ious.reduce(0) { $0 + $1.balance})) of $\(abs(ious.reduce(0) { $0 + $1.amount})) paid"
+        } else {
+            return "Sum: $0.00"
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let iou = fetchedResultsController.iou(atIndexPath: indexPath)
         let alertPayment = UIAlertController(title: "Add a Payment", message: "enter an amount", preferredStyle: .alert)
@@ -72,6 +85,43 @@ class IOUTableViewController: FetchedResultsTableViewController {
     
     // MARK: - IBACTIONS
     
+    private enum VCState {
+        case IOweYou
+        case YouOweMe
+    }
+    
+    private var state: VCState = .IOweYou {
+        didSet {
+            switch state {
+            case .IOweYou:
+                buttonIOU.setTitleColor(UIColor.white, for: .normal)
+                buttonIOU.backgroundColor = UIColor.currencyExpense
+                
+                buttonUOM.setTitleColor(UIColor.currencyIncome, for: .normal)
+                buttonUOM.backgroundColor = nil
+            case .YouOweMe:
+                buttonIOU.setTitleColor(UIColor.currencyExpense, for: .normal)
+                buttonIOU.backgroundColor = nil
+                
+                buttonUOM.setTitleColor(UIColor.white, for: .normal)
+                buttonUOM.backgroundColor = UIColor.currencyIncome
+            }
+            updateUI()
+        }
+    }
+    
+    @IBOutlet weak var buttonIOU: UIButton!
+    @IBOutlet weak var buttonUOM: UIButton!
+    @IBAction func changedState(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            state = .IOweYou
+        case 2:
+            state = .YouOweMe
+        default: break
+        }
+    }
+    
     @IBAction func pressAdd(_ sender: Any) {
         let alert = UIAlertController(title: "Adding an IOU", message: "enter an amount", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -85,10 +135,22 @@ class IOUTableViewController: FetchedResultsTableViewController {
                     textField.setStyleToParagraph(withPlaceholderText: "title")
                 }
                 alertTitle.addActions(actions:
-                    UIAlertActionInfo(title: "Add", handler: { (action) in
-                        let amount = _Decimal(alert.inputField.text!)!
-                        _ = IOU(title: alertTitle.inputField.text!, amount: amount, in: AppDelegate.viewContext)
-                        AppDelegate.instance.saveContext()
+                    UIAlertActionInfo(title: "Next", handler: { [weak self] (action) in
+                        let alertRecipient = UIAlertController(title: "Adding an IOU", message: "enter a recipient", preferredStyle: .alert)
+                        alertRecipient.addTextField { (textField) in
+                            textField.setStyleToParagraph(withPlaceholderText: "optional")
+                        }
+                        alertRecipient.addActions(actions:
+                            UIAlertActionInfo(title: "Add", handler: { (action) in
+                                var amount = abs(_Decimal(alert.inputField.text!)!)
+                                if self!.state == .IOweYou {
+                                    amount *= -1
+                                }
+                                _ = IOU(recipient: alertRecipient.inputField.text!, title: alertTitle.inputField.text!, amount: amount, in: AppDelegate.viewContext)
+                                AppDelegate.instance.saveContext()
+                            })
+                        )
+                        self!.present(alertRecipient, animated: true, completion: nil)
                     })
                 )
                 self!.present(alertTitle, animated: true, completion: nil)
@@ -101,6 +163,8 @@ class IOUTableViewController: FetchedResultsTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = 38
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         updateUI()

@@ -19,6 +19,7 @@
     </entity>
     <entity name="IOUs" representedClassName="IOU" parentEntity="Balances" syncable="YES" codeGenerationType="class">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="archived" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="recipient" optional="YES" attributeType="String" defaultValueString="No Name" syncable="YES"/>
         <relationship name="physicalAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" syncable="YES"/>
