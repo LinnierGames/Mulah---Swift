@@ -75,12 +75,24 @@ class IOUTableViewController: FetchedResultsTableViewController {
         }
         alertPayment.addActions(actions:
             UIAlertActionInfo(title: "Add", handler: { (action) in
-                let amount = _Decimal(alertPayment.inputField.text!)!
+                let amount = _Decimal(alertPayment.inputField.text!) ?? 0
                 _ = Transaction(amount: amount, fromBalance: iou, in: AppDelegate.viewContext)
                 AppDelegate.instance.saveContext()
             })
         )
         self.present(alertPayment, animated: true, completion: nil)
+    }
+    
+    // MARK Fetch Request
+    
+    override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        super.controllerDidChangeContent(controller)
+        
+        //update section header when data changes
+        let label = self.tableView.headerLabel(forSection: 0)!
+        label.text = tableView(self.tableView, titleForHeaderInSection: 1)
+        label.updateConstraints()
+        label.setNeedsLayout()
     }
     
     // MARK: - IBACTIONS

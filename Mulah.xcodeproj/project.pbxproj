@@ -29,6 +29,7 @@
 		E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */; };
 		E96ED7ED1F479FBD0074AE37 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EC1F479FBD0074AE37 /* Transaction.swift */; };
 		E96ED7EF1F47AF8E0074AE37 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */; };
+		E9792FE31F8C3D21005B3E09 /* UniversalExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9792FE21F8C3D21005B3E09 /* UniversalExtentions.swift */; };
 		E9DDE1BC1F5CEBF900BB9F9D /* IOUTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DDE1BB1F5CEBF900BB9F9D /* IOUTableViewController.swift */; };
 		E9DDE1BE1F5CF94600BB9F9D /* IOU.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DDE1BD1F5CF94600BB9F9D /* IOU.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		E96ED7E81F4759940074AE37 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
 		E96ED7EC1F479FBD0074AE37 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		E9792FE21F8C3D21005B3E09 /* UniversalExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UniversalExtentions.swift; path = "../../../../Swift Source Files/UniversalExtentions.swift"; sourceTree = "<group>"; };
 		E9DDE1BB1F5CEBF900BB9F9D /* IOUTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOUTableViewController.swift; sourceTree = "<group>"; };
 		E9DDE1BD1F5CF94600BB9F9D /* IOU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOU.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,14 @@
 			name = "Wish Lists";
 			sourceTree = "<group>";
 		};
+		E96EB7361F8C3F0C00DD9877 /* IOU */ = {
+			isa = PBXGroup;
+			children = (
+				E9DDE1BB1F5CEBF900BB9F9D /* IOUTableViewController.swift */,
+			);
+			path = IOU;
+			sourceTree = "<group>";
+		};
 		E96ED79F1F4670FB0074AE37 = {
 			isa = PBXGroup;
 			children = (
@@ -162,10 +172,10 @@
 				E96ED7AD1F4670FB0074AE37 /* ViewController.swift */,
 				E910717D1F48E2B6008AA490 /* Accounts */,
 				E907F33E1F47E62200B52934 /* Money Book */,
+				E96EB7361F8C3F0C00DD9877 /* IOU */,
 				E91719681F4B7D8C00CF3A82 /* Wish Lists */,
 				E96ED7AF1F4670FB0074AE37 /* Main.storyboard */,
 				E96ED7E71F47596D0074AE37 /* Supporting Files */,
-				E9DDE1BB1F5CEBF900BB9F9D /* IOUTableViewController.swift */,
 			);
 			path = Mulah;
 			sourceTree = "<group>";
@@ -193,6 +203,7 @@
 			children = (
 				E96ED7AB1F4670FB0074AE37 /* AppDelegate.swift */,
 				E96ED7E41F47535A0074AE37 /* Categories.swift */,
+				E9792FE21F8C3D21005B3E09 /* UniversalExtentions.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -355,6 +366,7 @@
 			files = (
 				E9DDE1BE1F5CF94600BB9F9D /* IOU.swift in Sources */,
 				E917196C1F4BC84500CF3A82 /* WishListGroupsTableViewController.swift in Sources */,
+				E9792FE31F8C3D21005B3E09 /* UniversalExtentions.swift in Sources */,
 				E917196A1F4B82F800CF3A82 /* WishList.swift in Sources */,
 				E96ED7E91F4759940074AE37 /* TransactionsTableViewController.swift in Sources */,
 				E96ED7AE1F4670FB0074AE37 /* ViewController.swift in Sources */,
