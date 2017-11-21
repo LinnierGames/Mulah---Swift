@@ -19,6 +19,17 @@ class WishListItemsTableViewController: FetchedResultsTableViewController {
     
     // MARK: - RETURN VALUES
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let items = fetchedResultsValue.fetchedObjects {
+            let amountSum: _Decimal = abs(items.reduce(0) { $0 + $1.balance})
+            let paidSum: _Decimal = abs(items.reduce(0) { $0 + $1.amount})
+            
+            return "Sum: $\(amountSum) of $\(paidSum) saved"
+        } else {
+            return "Sum: $0.00"
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
@@ -43,21 +54,29 @@ class WishListItemsTableViewController: FetchedResultsTableViewController {
         )
     }
     
-    /*
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     if let identifier = segue.identifier {
-     switch identifier {
-     case <#pattern#>:
-     <#code#>
-     default:
-     break
-     }
-     }
-     }*/
+    // MARK: Table View Delegate
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let alertAmount = UITextAlertController(title: "Change Amount", message: "enter a new amount", textFieldConfig: { $0.keyboardType = .numbersAndPunctuation})
+        alertAmount.addConfirmAction(action: UIAlertActionInfo(title: "Update", handler: { [weak self] (action) in
+            let wishListItem = self!.fetchedResultsValue.object(at: indexPath)
+            let amount = _Decimal(alertAmount.inputField.text ?? "0")!
+            wishListItem.amount = amount
+            AppDelegate.instance.saveContext()
+        }))
+        self.present(alertAmount, animated: true)
+    }
+    
+    // MARK: Fetch Request
+    
+    override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        super.controllerDidChangeContent(controller)
+        
+        //update section header when data changes
+        let label = self.tableView.headerLabel(forSection: 0)!
+        label.text = tableView(self.tableView, titleForHeaderInSection: 0)
+        label.updateConstraints()
+        label.setNeedsLayout()
     }
     
     // MARK Table View Delegate

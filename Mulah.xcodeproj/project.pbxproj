@@ -216,13 +216,13 @@
 				E96ED7BA1F4670FB0074AE37 /* Info.plist */,
 				E96ED7B21F4670FB0074AE37 /* Mulah.xcdatamodeld */,
 				E96ED7DE1F4689EB0074AE37 /* FetchedResultsTableViewController.swift */,
+				E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */,
 				E91071801F4969C1008AA490 /* Balance.swift */,
 				E96ED7E01F47522C0074AE37 /* Account.swift */,
 				E910717E1F48E462008AA490 /* SafeBox.swift */,
 				E9DDE1BD1F5CF94600BB9F9D /* IOU.swift */,
 				E91719691F4B82F800CF3A82 /* WishList.swift */,
 				E96ED7EC1F479FBD0074AE37 /* Transaction.swift */,
-				E96ED7EE1F47AF8E0074AE37 /* CustomTableViewCell.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

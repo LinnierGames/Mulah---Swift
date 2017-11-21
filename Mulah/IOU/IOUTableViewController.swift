@@ -13,6 +13,17 @@ class IOUTableViewController: FetchedResultsTableViewController {
     
     // MARK: - RETURN VALUES
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let ious = fetchedResultsController.fetchedObjects as! [IOU]? {
+            let amountSum = abs(ious.reduce(0) { $0 + $1.balance})
+            let paidSum = abs(ious.reduce(0) { $0 + $1.amount})
+            
+            return "Sum: $\(amountSum) of $\(paidSum) paid"
+        } else {
+            return "Sum: $0.00"
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
@@ -58,14 +69,6 @@ class IOUTableViewController: FetchedResultsTableViewController {
     
     // MARK Table View Delegate
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let ious = fetchedResultsController.fetchedObjects as! [IOU]? {
-            return "Sum: $\(abs(ious.reduce(0) { $0 + $1.balance})) of $\(abs(ious.reduce(0) { $0 + $1.amount})) paid"
-        } else {
-            return "Sum: $0.00"
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let iou = fetchedResultsController.iou(atIndexPath: indexPath)
         let alertPayment = UIAlertController(title: "Add a Payment", message: "enter an amount", preferredStyle: .alert)
@@ -90,7 +93,7 @@ class IOUTableViewController: FetchedResultsTableViewController {
         
         //update section header when data changes
         let label = self.tableView.headerLabel(forSection: 0)!
-        label.text = tableView(self.tableView, titleForHeaderInSection: 1)
+        label.text = tableView(self.tableView, titleForHeaderInSection: 0)
         label.updateConstraints()
         label.setNeedsLayout()
     }
